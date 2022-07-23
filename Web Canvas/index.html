@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>Web Canvas</title>
+</head>
+
+<body">
+    <div id="vertical">
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-secondary" onclick="chooseTool('brush')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Brush"><img
+                    src="https://img.icons8.com/plumpy/48/ffffff/paint.png" /></button>
+            <button type="button" class="btn btn-secondary" onclick="chooseTool('eraser')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Eraser"><img
+                    src="https://img.icons8.com/plumpy/48/ffffff/eraser-tool.png" /></button>
+            <button type="button" class="btn btn-secondary" onclick="chooseTool('text')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Text"><img
+                    src="https://img.icons8.com/plumpy/48/ffffff/type.png" /></button>
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="dropdown" data-bs-autoClose="true"
+                    data-bs-placement="right" title="Shape" aria-expanded="false" id="shape"><img
+                        src="https://img.icons8.com/external-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto/48/000000/external-shape-design-thinking-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto.png" /></button>
+                </button>
+                <ul class="dropdown-menu">
+                    <button type="button" class="btn " onclick="chooseTool('line')" data-bs-toggle="tooltip"
+                        data-bs-placement="right" title="Line"><img
+                            src="https://img.icons8.com/plumpy/24/000000/line.png" /></button>
+                    <button type="button" class="btn" onclick="chooseTool('circle')" data-bs-toggle="tooltip"
+                        data-bs-placement="right" title="Circle"><img
+                            src="https://img.icons8.com/plumpy/24/000000/circled.png" /></button>
+                    <button type="button" class="btn" onclick="chooseTool('triangle')" data-bs-toggle="tooltip"
+                        data-bs-placement="right" title="Triangle"><img
+                            src="https://img.icons8.com/plumpy/24/000000/triangle-stroked.png" /></button>
+                    <button type="button" class="btn" onclick="chooseTool('rectangle')" data-bs-toggle="tooltip"
+                        data-bs-placement="right" title="Rectangle"><img
+                            src="https://img.icons8.com/plumpy/24/000000/rectangle-stroked.png" /></button>
+                </ul>
+            </div>
+            <!-- <button type="button" class="btn btn-secondary" onclick="chooseTool('magnifier')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Magnifier"><img
+                    src="https://img.icons8.com/plumpy/48/000000/detective.png" /></button> -->
+            <button type="button" class="btn btn-secondary" onclick="chooseTool('undo')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Undo"><img
+                    src="https://img.icons8.com/plumpy/48/ffffff/undo.png" /></button>
+            <button type="button" class="btn btn-secondary" onclick="chooseTool('redo')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Redo"><img
+                    src="https://img.icons8.com/plumpy/48/ffffff/redo.png" /></button>
+            <button type="button" class="btn btn-secondary" onclick="chooseTool('clear')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Clear"><img
+                    src="https://img.icons8.com/plumpy/48/ffffff/synchronize.png" /></button>
+            <!-- <button type="button" class="btn btn-secondary" onclick="chooseTool('download')" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-placement="right" title="Download"><img
+                    src="https://img.icons8.com/plumpy/48/000000/download--v1.png" /></button> -->
+            <button type="button" class="btn btn-secondary" onclick="clearFileName()" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" data-bs-placement="right" title="Download"><img
+                    src="https://img.icons8.com/plumpy/48/000000/download--v1.png" /></button>
+            <button type="button" class="btn btn-secondary" onclick="chooseTool('upload')" data-bs-toggle="tooltip"
+                data-bs-placement="right" title="Upload" id="uploadButton"><img
+                    src="https://img.icons8.com/plumpy/48/000000/upload--v1.png" /></button>
+        </div>
+    </div>
+    <div class="container-fluid" id="horizontal">
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="checkbox" id="customcolor" checked="true">
+                <label id="first-col">Custom Color</label> <br>
+                <input type="checkbox" id="fillshape">
+                <label id="first-col">Fill </label>
+            </div>
+            <div class="col-sm-2">
+                <label>Size</label>
+                <input type="range" id="size" min="2" max="50" value="2" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="2">
+                <div class="row">
+                    <div id="fontType">
+                        <select class="form-select" id="font">
+                            <option selected>Arial</option>
+                            <option>Cursive</option>
+                            <option>Fantasy</option>
+                            <option>Georgia</option>
+                            <option>Monospace</option>
+                        </select>
+                    </div>
+                    <div id="fontSize">
+                        <select class="form-select" id="sizeFont">
+                            <option>8</option>
+                            <option>10</option>
+                            <option>12</option>
+                            <option>14</option>
+                            <option>16</option>
+                            <option>18</option>
+                            <option>20</option>
+                            <option>22</option>
+                            <option>24</option>
+                            <option>26</option>
+                            <option>28</option>
+                            <option>36</option>
+                            <option selected>48</option>
+                            <option>72</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-1 d-flex justify-content-centerr">
+                <div class="square" id="currentcolor"></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="cp_wrapper">
+                    <input type="color" value="#000000" id="color1" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#7f7f7f" id="color2" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#ff0000" id="color3" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#ff8000" id="color4" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#ffff00" id="color5" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#00ff00" id="color6" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div> <br>
+                <div class="cp_wrapper">
+                    <input type="color" value="#00ff7f" id="color7" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#00ffff" id="color8" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#0000ff" id="color9" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#7f00ff" id="color10" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#ff00ff" id="color11" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+                <div class="cp_wrapper">
+                    <input type="color" value="#ff7f7f" id="color12" onchange="palette(this.id)"
+                        onclick="palette(this.id)" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <canvas id="canvas">
+            Your browser does not support the canvas element.
+        </canvas>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Download</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="cancelDownload()"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Save as : </label>
+                    <input type="text" id="filename">
+                    <label>.png</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="cancelDownload()">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="chooseTool('download')">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="text" id="text" onkeydown="onkeyDown(event)">
+    <input id="upload" type="file" hidden />
+    <canvas id="glass"></canvas>
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    </body>
+
+</html>

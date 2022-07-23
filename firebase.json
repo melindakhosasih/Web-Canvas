@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "Web Canvas",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

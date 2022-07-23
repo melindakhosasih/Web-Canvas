@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(221, 220, 220);
+}
+
+#vertical {
+    position: absolute;
+    padding: 25px;
+    height: 100%;
+    width: 125px;
+    /* background-color: aqua; */
+}
+
+#horizontal {
+    position: absolute;
+    padding-top: 15px;
+    margin-left: 125px;
+    /* padding-left: 4%; */
+    height: 125px;
+    width: 85%;
+    /* background-color: bisque; */
+}
+
+.col-sm-2 {
+    /* background-color: beige; */
+    width: 250px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#first-col {
+    margin-left: 3%;
+}
+
+input[type=checkbox] {
+    zoom: 1.2;
+}
+
+label {
+    font-size: 25px;
+    font-family: cursive;
+    color: darkslategrey;
+}
+
+#size {
+    margin-left: 3%;
+}
+
+#fontType {
+    width: 155px;
+}
+
+#font {
+    border: 2px solid #c3c3c3;
+}
+
+#fontSize {
+    width: 95px;
+}
+
+#sizeFont {
+    border: 2px solid #c3c3c3;
+}
+
+.col-sm-1 {
+    width: 100px;
+}
+.square {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 4px solid #ffffff;
+    box-shadow: 1px 1px 3px 0px grey;
+}
+
+input[type='color'] {
+    width: 150%;
+    height: 150%;
+    margin: -25%;
+}
+
+.col-sm-4 {
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
+.cp_wrapper {
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-bottom: 3px;
+    box-shadow: 1px 1px 3px 0px grey;
+    display: inline-block;
+}
+
+#canvas {
+    position: absolute;
+    margin-top: 110px;
+    margin-left:113px;
+    /* margin-top: 15px;  */
+    /* width: 70%;
+    height: 70%; */
+    /* padding: 1.5%; */
+    /* margin-left: 75px;
+    padding-left: 4%; */
+    border: 2px solid #c3c3c3;
+    background-color: white;
+}
+
+.dropdown-menu {
+    background-color: rgba(221, 220, 220, 0.516);
+    min-width: 0px;
+    padding-left: 10px;
+}
+
+#text {
+    position: absolute;
+    display: none;
+}
+
+#glass {
+    position: absolute;
+    display: none;
+    width: 300px;
+    height: 200px;
+}
